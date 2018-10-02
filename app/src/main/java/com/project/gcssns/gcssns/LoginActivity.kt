@@ -25,11 +25,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun moveSignupActivity(){
+    private fun moveSignupActivity(){
         startActivity(Intent(this, SignupActivity::class.java))
     }
 
-    fun emailLogin(){
+    private fun emailLogin(){
         if(editText_login_email.text.toString() == "" || editText_login_password.text.toString() ==  ""){
             Toast.makeText(this, "아이디와 비밀번호를 입력하세요.", Toast.LENGTH_LONG).show()
             return
@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun moveMainActivity(){
+    private fun moveMainActivity(){
         startActivity(Intent(this, MainActivity::class.java))
     }
 

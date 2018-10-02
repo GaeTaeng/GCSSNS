@@ -4,17 +4,20 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignupActivity : AppCompatActivity() {
 
     var auth : FirebaseAuth? = null
+    var firebaseFirestore : FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
         auth = FirebaseAuth.getInstance()
+        firebaseFirestore = FirebaseFirestore.getInstance()
 
         button_signup_submit.setOnClickListener {
             signup()
