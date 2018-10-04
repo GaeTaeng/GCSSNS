@@ -16,8 +16,8 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        auth = FirebaseAuth.getInstance()
-        firebaseFirestore = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance() // firebase로부터 authentication 정보를 받아옴
+        firebaseFirestore = FirebaseFirestore.getInstance() // firebase로부터 database 정보를 받아옴
 
         button_signup_submit.setOnClickListener {
             signup()
@@ -25,11 +25,13 @@ class SignupActivity : AppCompatActivity() {
     }
 
     fun signup(){
+        //모든 정보가 입력 되었나 확인
         if(editText_signup_email.text.toString().isEmpty() || editText_signup_password.text.toString().isEmpty() || editText_signup_name.text.toString().isEmpty()
         || editText_signup_major.text.toString().isEmpty() || editText_signup_studentId.toString().isEmpty()){
             Toast.makeText(this, "모든 정보를 입력해 주세요.", Toast.LENGTH_LONG).show()
             return
         }
+        // 이메일 로그인 유저 만드는 함수 createUserWithEmailAndPassword(email, password)
         auth!!.createUserWithEmailAndPassword(editText_signup_email.text.toString(), editText_signup_password.text.toString()).addOnCompleteListener {task ->
             if(task.isSuccessful){
                 Toast.makeText(this,"회원가입에 성공했습니다.", Toast.LENGTH_LONG).show()
