@@ -44,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
         auth!!.signInWithEmailAndPassword(editText_login_email.text.toString(), editText_login_password.text.toString()).addOnCompleteListener {task ->
             if(task.isSuccessful){  //성공시 메인 액티비티 이동
                 Toast.makeText(this, "로그인에 성공했습니다.", Toast.LENGTH_LONG).show()
+                user = auth!!.currentUser
                 moveMainActivity()
             } else{ //실패시 오류 출력
                 Toast.makeText(this, task.exception.toString(), Toast.LENGTH_LONG).show()
