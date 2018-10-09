@@ -6,4 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.project.gcssns.gcssns.MainActivity">
 
+    <include layout="@layout/toolbar_main" />
+
 </android.support.constraint.ConstraintLayout>
