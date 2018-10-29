@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--android:icon="@drawable/ic_home"-->
+    <item
+        android:title="home"
+        android:id="@+id/action_home"
+        android:enabled="true">
+    </item>
+    <item
+        android:title="chat"
+        android:id="@+id/action_chat"
+        android:enabled="true">
+    </item>
+    <item
+        android:title="profile"
+        android:id="@+id/action_profile"
+        android:enabled="true">
+    </item>
+    <item
+        android:title="members"
+        android:id="@+id/action_members"
+        android:enabled="true">
+    </item>
+
+</menu>
