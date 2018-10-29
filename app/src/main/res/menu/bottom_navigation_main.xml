@@ -3,6 +3,7 @@
     <!--android:icon="@drawable/ic_home"-->
     <item
         android:title="home"
+        android:icon="@drawable/common_google_signin_btn_icon_light"
         android:id="@+id/action_home"
         android:enabled="true">
     </item>
