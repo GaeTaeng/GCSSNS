@@ -8,62 +8,56 @@
     tools:layout_editor_absoluteY="25dp">
 
     <EditText
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        android:background="@drawable/edittext_rounded_shape"
         android:id="@+id/editText_login_email"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginStart="32dp"
-        android:paddingLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/edittext_rounded_shape"
         android:hint="Email"
-        app:layout_constraintBottom_toTopOf="@+id/editText_login_password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
+        android:paddingLeft="16dp"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
-        android:background="@drawable/edittext_rounded_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
         android:id="@+id/editText_login_password"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
-        android:paddingLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_rounded_shape"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/button_login_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.25"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:paddingLeft="16dp"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintEnd_toEndOf="@+id/editText_login_email"
+        app:layout_constraintStart_toStartOf="@+id/editText_login_email"
+        app:layout_constraintTop_toBottomOf="@+id/editText_login_email" />
 
     <Button
-        android:textColor="@android:color/white"
         android:id="@+id/button_login_email"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="232dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
-        android:text="이메일 로그인"
+        android:layout_marginTop="8dp"
         android:background="@drawable/button_rounded_shape"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="이메일 로그인"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="@+id/editText_login_password"
+        app:layout_constraintStart_toStartOf="@+id/editText_login_password"
+        app:layout_constraintTop_toBottomOf="@+id/editText_login_password" />
 
     <TextView
         android:id="@+id/textView_login_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="아직 회원이 아니신가요?"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
