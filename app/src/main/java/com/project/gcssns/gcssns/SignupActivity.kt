@@ -2,11 +2,10 @@ package com.project.gcssns.gcssns
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -61,24 +60,28 @@ class SignupActivity : AppCompatActivity() {
 
     fun uploadImage(){
         if(selectedPhotoUri == null) return
-        val filename = UUID.randomUUID().toString()
-        val ref = FirebaseStorage.getInstance().getReference("images/$filename")
-        ref.putFile(selectedPhotoUri!!)
+        val filename = UUID.randomUUID().toString() //고유한 파일이름을 만듬
+        val ref = FirebaseStorage.getInstance().getReference("images/$filename") //Firebase Storage 래퍼런스 정보
+        ref.putFile(selectedPhotoUri!!) //이미지 파일추가
                 .addOnSuccessListener {
                     ref.downloadUrl.addOnSuccessListener {
                         Log.d("SignupActivity", "File Location : $it")
-                        saveUserDataToDatabase(selectedPhotoUri.toString())
+                        saveUserDataToDatabase(it.toString())
                     }
                 }
     }
 
     fun saveUserDataToDatabase(selectedPhotoUri: String){
-        val uid = FirebaseAuth.getInstance().uid
-        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        val uid = FirebaseAuth.getInstance().uid //유저 고유 아이디
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid") //Firebase database 래퍼런스 정보
         val user = User(uid, selectedPhotoUri, editText_signup_email.text.toString(), editText_signup_name.text.toString(), editText_signup_studentId.text.toString(), editText_signup_major.text.toString())
-        ref.setValue(user)
+        println("유저 정보 : " + user)
+        ref.setValue(user) // Firebase에서 가져온 래퍼런스 정보에다가 유저 정보를 넣음
                 .addOnSuccessListener {
                     Log.d("SignupActivity", "User Information saved")
+                }
+                .addOnFailureListener {
+                    Log.d("SignupActivity", "Failed to save user information.")
                 }
     }
 
@@ -89,8 +92,10 @@ class SignupActivity : AppCompatActivity() {
         if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
             selectedPhotoUri = data.data
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
-            val bitamapDrawable = BitmapDrawable(bitmap)
-            button_signup_photo.setBackgroundDrawable(bitamapDrawable)
+            //val bitamapDrawable = BitmapDrawable(bitmap)
+            //button_signup_photo.setBackgroundDrawable(bitamapDrawable)
+            imageView_signup_photo_register.setImageBitmap(bitmap)
+            button_signup_photo.alpha = 0f
         }
     }
 }

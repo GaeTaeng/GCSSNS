@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".ChatFragment"></activity>
+        <activity android:name=".ChatFragment" />
+        <activity android:name=".ChatLogActivity"></activity>
     </application>
 
 </manifest>

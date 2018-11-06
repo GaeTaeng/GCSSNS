@@ -3,22 +3,25 @@
     <!--android:icon="@drawable/ic_home"-->
     <item
         android:title="home"
-        android:icon="@drawable/common_google_signin_btn_icon_light"
+        android:icon="@drawable/icon_home"
         android:id="@+id/action_home"
         android:enabled="true">
     </item>
     <item
         android:title="chat"
+        android:icon="@drawable/icon_chat"
         android:id="@+id/action_chat"
         android:enabled="true">
     </item>
     <item
         android:title="profile"
+        android:icon="@drawable/icon_profile"
         android:id="@+id/action_profile"
         android:enabled="true">
     </item>
     <item
         android:title="members"
+        android:icon="@drawable/icon_members"
         android:id="@+id/action_members"
         android:enabled="true">
     </item>
