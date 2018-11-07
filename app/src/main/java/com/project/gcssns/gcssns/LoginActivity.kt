@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
     private fun moveMainActivity(){
         if(user != null){ //유저 정보가 있으면 메인 액티비티로 이동
             val intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
     }

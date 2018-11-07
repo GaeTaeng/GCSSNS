@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -28,8 +27,11 @@ class ChatLogActivity : AppCompatActivity(), View.OnKeyListener {
     var view : View? = null
 
     override fun onKey(v: View?, keyCode: Int, event: KeyEvent?): Boolean {
-        if(event!!.action == KeyEvent.KEYCODE_ENTER){
-            Toast.makeText(this, "클릭", Toast.LENGTH_LONG).show()
+        if(event!!.action != KeyEvent.ACTION_DOWN){
+            return true
+        }
+        if(keyCode == KeyEvent.KEYCODE_ENTER){
+            sendMessage()
         }
         return true
     }
@@ -46,10 +48,7 @@ class ChatLogActivity : AppCompatActivity(), View.OnKeyListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_log)
 
-        view = View(this)
-        view!!.isFocusable = true
-        view!!.isFocusableInTouchMode = true
-
+        editText_chat_log_message.setOnKeyListener(this)
 
         setSupportActionBar(chat_log_toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
@@ -71,7 +70,7 @@ class ChatLogActivity : AppCompatActivity(), View.OnKeyListener {
     private fun listenForMessages(){
         val fromId = FirebaseAuth.getInstance().uid
         if(fromId == null) return
-        val toId = toUser!!.userName
+        val toId = toUser!!.uid
         val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId")
 
         ref.addChildEventListener(object: ChildEventListener{ //데이터 베이스에서 메세지 정보를 찾아서 뷰에 표시해 준다
@@ -85,6 +84,7 @@ class ChatLogActivity : AppCompatActivity(), View.OnKeyListener {
                         val currentUser = MainActivity.currentUser ?: return
                         adapter.add(ChatToItem(chatMessage.text, currentUser!!))
                     }
+                    recyclerview_chat_log.scrollToPosition(adapter.itemCount - 1)
                 }
             }
 
@@ -108,7 +108,7 @@ class ChatLogActivity : AppCompatActivity(), View.OnKeyListener {
         val fromId = FirebaseAuth.getInstance().uid
         if(fromId == null) return
 
-        val toId = toUser!!.userName
+        val toId = toUser!!.uid
 
         val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
 
