@@ -37,6 +37,10 @@ class MembersFragment : Fragment(){
         fetchUsers()
     }
 
+    companion object {
+        val USER_KEY  = "USER_KEY"
+    }
+
     private fun fetchUsers(){
         val ref = FirebaseDatabase.getInstance().getReference("/users")
         ref.addListenerForSingleValueEvent(object: ValueEventListener{
@@ -50,10 +54,13 @@ class MembersFragment : Fragment(){
                     }
                 }
                 adapter.setOnItemClickListener { item, view ->
+
+                    val userItem = item as UserItem
+
                     val intent = Intent(context, ChatLogActivity::class.java)
+                    intent.putExtra(USER_KEY, item.user)
                     startActivity(intent)
                 }
-
                 recyclerview_member_list.adapter = adapter
             }
             override fun onCancelled(p0: DatabaseError?) {

@@ -6,10 +6,19 @@ import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.project.gcssns.gcssns.model.User
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar_main.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+
+    companion object {
+        var currentUser: User? = null
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +31,22 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             val intent = Intent(this, SignupActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
+        } else{
+            fetchCurrentUser()
         }
+    }
+
+    private fun fetchCurrentUser(){ //현재 접속한 유저정보를 데이터베이스에서 찾는다
+        val uid = FirebaseAuth.getInstance().uid
+        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+        ref.addListenerForSingleValueEvent(object : ValueEventListener{
+            override fun onDataChange(p0: DataSnapshot?) {
+                currentUser = p0!!.getValue(User::class.java)
+            }
+            override fun onCancelled(p0: DatabaseError?) {
+
+            }
+        })
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
