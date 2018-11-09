@@ -110,9 +110,9 @@ class ChatLogActivity : AppCompatActivity(), View.OnKeyListener {
 
         val toId = toUser!!.uid
 
-        val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push()
+        val ref = FirebaseDatabase.getInstance().getReference("/user-messages/$fromId/$toId").push() //새로운 메세지를 push
 
-        val toRef = FirebaseDatabase.getInstance().getReference("/user-messages/$toId/$fromId").push()
+        val toRef = FirebaseDatabase.getInstance().getReference("/user-messages/$toId/$fromId").push() //상대방 입장에서도 메세지가 추가되어야 함
 
         val chatMessage = ChatMessage(ref.key, text, fromId, toId, System.currentTimeMillis() / 1000)
         ref.setValue(chatMessage)
@@ -126,7 +126,7 @@ class ChatLogActivity : AppCompatActivity(), View.OnKeyListener {
                     Log.d(TAG, "saved our message : ${toRef.key}")
                 }
 
-        val lastestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/$toId")
+        val lastestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/$toId") //최신 메세지를 데이터 베이스에 갱신, 추가가 아니므로 push X
         lastestMessageRef.setValue(chatMessage)
 
         val lastestMessageToRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$toId/$fromId")
