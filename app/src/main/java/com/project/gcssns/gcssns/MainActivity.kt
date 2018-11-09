@@ -61,9 +61,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 supportFragmentManager.beginTransaction().replace(R.id.main_content, chatFragment).commit()
                 return true
             }
-            R.id.action_profile->{
-                var profileFragment = ProfileFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.main_content, profileFragment).commit()
+            R.id.action_gallery->{
+                var galleryFragment = GalleryFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.main_content, galleryFragment).commit()
                 return true
             }
             R.id.action_members->{

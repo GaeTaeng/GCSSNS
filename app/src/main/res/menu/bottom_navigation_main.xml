@@ -14,9 +14,9 @@
         android:enabled="true">
     </item>
     <item
-        android:title="profile"
-        android:icon="@drawable/icon_profile"
-        android:id="@+id/action_profile"
+        android:title="gallery"
+        android:icon="@drawable/icon_gallery"
+        android:id="@+id/action_gallery"
         android:enabled="true">
     </item>
     <item

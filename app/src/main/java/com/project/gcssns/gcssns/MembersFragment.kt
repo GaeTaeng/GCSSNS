@@ -3,6 +3,7 @@ package com.project.gcssns.gcssns
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.DividerItemDecoration
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +34,7 @@ class MembersFragment : Fragment(){
         val adapter = GroupAdapter<ViewHolder>()
         //adapter.add()
         recyclerview_member_list.adapter = adapter
+        recyclerview_member_list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
         fetchUsers()
     }
@@ -41,7 +43,7 @@ class MembersFragment : Fragment(){
         val USER_KEY  = "USER_KEY"
     }
 
-    private fun fetchUsers(){
+    private fun fetchUsers(){ //데이터 베이스에서 유저들을 가져와 recycler로 보여준다
         val ref = FirebaseDatabase.getInstance().getReference("/users")
         ref.addListenerForSingleValueEvent(object: ValueEventListener{
             val adapter = GroupAdapter<ViewHolder>()
