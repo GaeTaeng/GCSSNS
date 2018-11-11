@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.KeyEvent
+import android.view.MenuItem
 import android.view.View
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ChildEventListener
@@ -52,6 +53,8 @@ class ChatLogActivity : AppCompatActivity(), View.OnKeyListener {
 
         setSupportActionBar(chat_log_toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
+        supportActionBar!!.setDisplayShowHomeEnabled(true)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         recyclerview_chat_log.adapter = adapter
 
@@ -59,12 +62,17 @@ class ChatLogActivity : AppCompatActivity(), View.OnKeyListener {
         chat_log_toolbar.textView_chat_log_to_username.text = toUser!!.userName
 
         listenForMessages()
-        imageView_chat_log_back.setOnClickListener {
-            this.finish()
-        }
         button_chat_log_send.setOnClickListener {
             sendMessage()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        var id = item!!.itemId
+        if(id == android.R.id.home){
+            this.finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun listenForMessages(){

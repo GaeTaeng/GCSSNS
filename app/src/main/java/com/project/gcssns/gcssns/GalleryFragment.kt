@@ -1,5 +1,6 @@
 package com.project.gcssns.gcssns
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
@@ -7,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -39,6 +41,11 @@ class GalleryFragment : Fragment(){
         recyclerview_gallery_list.layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
         width = resources.displayMetrics.widthPixels / 3
         //GridLayoutManager()
+        fetchGallery()
+        floatingActionButton_gallery_write.setOnClickListener {
+            var intent = Intent(context, GalleryPictureWriteActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun fetchGallery(){ //데이터 베이스에서 사진들을 가져와 recycler로 보여준다

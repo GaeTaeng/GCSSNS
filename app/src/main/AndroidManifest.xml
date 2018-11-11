@@ -19,7 +19,11 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".ChatFragment" />
-        <activity android:name=".ChatLogActivity"></activity>
+        <activity android:name=".ChatLogActivity" />
+        <activity
+            android:name=".GalleryPictureWriteActivity"
+            android:label="@string/title_activity_gallery_picture_write"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
