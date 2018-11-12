@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -35,6 +36,10 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         } else{
             fetchCurrentUser()
         }
+
+        //Drawer_Menu
+
+
     }
 
     private fun fetchCurrentUser(){ //현재 접속한 유저정보를 데이터베이스에서 찾는다
