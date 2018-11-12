@@ -8,7 +8,7 @@
     tools:layout_editor_absoluteY="25dp">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_gallery_write_upload_image"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginEnd="16dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editText_gallery_write_content"
         android:layout_width="0dp"
         android:layout_height="120dp"
         android:layout_marginEnd="32dp"
@@ -41,18 +41,28 @@
         android:textColorHint="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/button_gallery_write_upload_image" />
 
     <Button
-        android:id="@+id/button_gallery_submit"
+        android:id="@+id/button_gallery_write_submit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/button_rounded_shape"
         android:text="submit"
         android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="@+id/editText2"
-        app:layout_constraintStart_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_gallery_write_content"
+        app:layout_constraintStart_toStartOf="@+id/editText_gallery_write_content"
+        app:layout_constraintTop_toBottomOf="@+id/editText_gallery_write_content" />
+
+    <ImageView
+        android:id="@+id/imageView_gallery_write_image"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button_gallery_write_upload_image"
+        app:layout_constraintEnd_toEndOf="@+id/button_gallery_write_upload_image"
+        app:layout_constraintStart_toStartOf="@+id/button_gallery_write_upload_image"
+        app:layout_constraintTop_toTopOf="@+id/button_gallery_write_upload_image"
+        app:srcCompat="?attr/colorBackgroundFloating" />
 
 </android.support.constraint.ConstraintLayout>

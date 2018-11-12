@@ -91,7 +91,7 @@ class chatListRow(val chatMessage: ChatMessage?) : Item<ViewHolder>(){
 
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.textView_chat_chatlist_message.text = chatMessage!!.text
-        //viewHolder.itemView.textView_chat_chatlist_username.text = chatMessage!!.
+        //iewHolder.itemView.textView_chat_chatlist_username.text = chatMessage!!.fromId
         val chatPartnerId : String?
         if(chatMessage.fromId == FirebaseAuth.getInstance().uid){
             chatPartnerId = chatMessage.toId
