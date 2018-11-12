@@ -21,9 +21,10 @@
         <activity android:name=".ChatFragment" />
         <activity android:name=".ChatLogActivity" />
         <activity
-            android:name=".GalleryPictureWriteActivity"
+            android:name=".GalleryWriteActivity"
             android:label="@string/title_activity_gallery_picture_write"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".GalleryReadActivity"></activity>
     </application>
 
 </manifest>

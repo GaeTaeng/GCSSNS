@@ -12,14 +12,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.project.gcssns.gcssns.model.GalleryPicture
-import kotlinx.android.synthetic.main.activity_gallery_picture_write.*
+import kotlinx.android.synthetic.main.activity_gallery_write.*
 import java.util.*
 
-class GalleryPictureWriteActivity : AppCompatActivity() {
+class GalleryWriteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gallery_picture_write)
+        setContentView(R.layout.activity_gallery_write)
 
         button_gallery_write_upload_image.setOnClickListener {
             var intent = Intent(Intent.ACTION_PICK)
