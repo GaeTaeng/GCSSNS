@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.gcssns.gcssns">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,7 +26,8 @@
             android:name=".GalleryWriteActivity"
             android:label="@string/title_activity_gallery_picture_write"
             android:theme="@style/AppTheme" />
-        <activity android:name=".GalleryReadActivity"></activity>
+        <activity android:name=".GalleryReadActivity" />
+        <activity android:name=".HomeWriteActivity"></activity>
     </application>
 
 </manifest>

@@ -34,6 +34,7 @@ class GalleryWriteActivity : AppCompatActivity() {
     var selectedPhotoUri : Uri? = null
 
     fun uploadImage(){
+        Toast.makeText(this, selectedPhotoUri.toString(), Toast.LENGTH_LONG).show()
         if(selectedPhotoUri == null) {
             Toast.makeText(this, "사진을 선택해 주세요.", Toast.LENGTH_LONG).show()
             return

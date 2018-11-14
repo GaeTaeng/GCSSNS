@@ -25,26 +25,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:maxLength="1024"
         android:id="@+id/editText_gallery_write_content"
         android:layout_width="0dp"
-        android:layout_height="130dp"
+        android:layout_height="0dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        android:background="@drawable/edittext_rounded_shape"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/edittext_rounded_shape_light"
         android:ems="10"
         android:gravity="top|left"
         android:hint="content"
         android:inputType="textMultiLine"
-        android:lines="5"
+        android:maxLength="1024"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
         android:scrollHorizontally="false"
         android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/button_gallery_write_submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_gallery_write_upload_image" />
@@ -53,13 +54,13 @@
         android:id="@+id/button_gallery_write_submit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/button_rounded_shape"
         android:text="submit"
         android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editText_gallery_write_content"
-        app:layout_constraintStart_toStartOf="@+id/editText_gallery_write_content"
-        app:layout_constraintTop_toBottomOf="@+id/editText_gallery_write_content" />
+        app:layout_constraintStart_toStartOf="@+id/editText_gallery_write_content" />
 
     <ImageView
         android:id="@+id/imageView_gallery_write_image"
