@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -13,7 +12,6 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.project.gcssns.gcssns.model.User
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_gallery.*
 import kotlinx.android.synthetic.main.toolbar_main.*
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -36,7 +34,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         } else{
             fetchCurrentUser()
         }
-
+        var homeFragment = HomeFragment()
+        supportFragmentManager.beginTransaction().replace(R.id.main_content, homeFragment).commit()
         //Drawer_Menu
 
 

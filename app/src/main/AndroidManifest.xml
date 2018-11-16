@@ -27,7 +27,8 @@
             android:label="@string/title_activity_gallery_picture_write"
             android:theme="@style/AppTheme" />
         <activity android:name=".GalleryReadActivity" />
-        <activity android:name=".HomeWriteActivity"></activity>
+        <activity android:name=".HomeWriteActivity" />
+        <activity android:name=".HomeReadActivity"></activity>
     </application>
 
 </manifest>

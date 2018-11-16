@@ -9,10 +9,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.widget.Toast
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import com.project.gcssns.gcssns.model.GalleryPicture
+import com.project.gcssns.gcssns.model.HomeFeed
 import com.squareup.picasso.Picasso
 import droidninja.filepicker.FilePickerBuilder
 import droidninja.filepicker.FilePickerConst
@@ -24,6 +23,7 @@ import java.util.*
 class HomeWriteActivity : AppCompatActivity() {
 
     var picturePathList = ArrayList<String>()
+    var pictureDownloadPathList = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +58,8 @@ class HomeWriteActivity : AppCompatActivity() {
                     for(x in picturePathList){
                         uploadImage(Uri.fromFile(File(x)))
                     }
+                    saveDataBaseImage()
+                    pictureDownloadPathList.clear()
                 }
             }
         }
@@ -71,24 +73,23 @@ class HomeWriteActivity : AppCompatActivity() {
                 .addOnSuccessListener {
                     ref.downloadUrl.addOnSuccessListener {
                         Log.d("HomePictureWrite", "File Location : $it")
-                        //saveDataBaseImage(it.toString(), filename)
+                        pictureDownloadPathList.add(it.toString())
                     }
                 }
     }
 
-    fun saveDataBaseImage(selectedPhotoUri: String, filename : String){
-        val uid = FirebaseAuth.getInstance().uid //유저 고유 아이디
+    fun saveDataBaseImage(){
         val ref = FirebaseDatabase.getInstance().getReference("/home").push() //Firebase database 래퍼런스 정보
-        val galleryPicture = GalleryPicture(filename, MainActivity.currentUser!!, editText_gallery_write_content.text.toString(), selectedPhotoUri,System.currentTimeMillis() / 1000)
-        println("유저 정보 : " + galleryPicture)
-        ref.setValue(galleryPicture) // Firebase에서 가져온 래퍼런스 정보에다가 유저 정보를 넣음
+        val homeFeed = HomeFeed(MainActivity.currentUser!!, editText_gallery_write_content.text.toString(), pictureDownloadPathList,System.currentTimeMillis() / 1000)
+        println("유저 정보 : " + homeFeed)
+        ref.setValue(homeFeed) // Firebase에서 가져온 래퍼런스 정보에다가 유저 정보를 넣음
                 .addOnSuccessListener {
-                    Toast.makeText(this, "사진 등록이 완료되었습니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "메인 게시물 등록이 완료되었습니다.", Toast.LENGTH_LONG).show()
                     Log.d("HomeWrite", "the home picture Information saved")
                     finish()
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "사진 등록에 실패하였습니다.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "메인 게시물 등록에 실패하였습니다.", Toast.LENGTH_LONG).show()
                     Log.d("HomeWrite", "Failed to save the gallery picture information.")
                 }
     }
