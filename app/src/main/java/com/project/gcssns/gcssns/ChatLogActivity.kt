@@ -34,6 +34,9 @@ class ChatLogActivity : AppCompatActivity(), View.OnKeyListener {
         if(keyCode == KeyEvent.KEYCODE_ENTER){
             sendMessage()
         }
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            finish()
+        }
         return true
     }
 

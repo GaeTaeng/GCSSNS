@@ -29,7 +29,8 @@
         <activity android:name=".GalleryReadActivity" />
         <activity android:name=".HomeWriteActivity" />
         <activity android:name=".HomeReadActivity" />
-        <activity android:name=".HomePictureReadActivity"></activity>
+        <activity android:name=".HomePictureReadActivity" />
+        <activity android:name=".ProfileActivity"></activity>
     </application>
 
 </manifest>

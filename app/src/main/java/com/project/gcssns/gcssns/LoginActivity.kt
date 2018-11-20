@@ -1,7 +1,9 @@
 package com.project.gcssns.gcssns
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -35,6 +37,19 @@ class LoginActivity : AppCompatActivity() {
         startActivity(Intent(this, SignupActivity::class.java))
     }
 
+    override fun onBackPressed() {
+        var builder = AlertDialog.Builder(this)
+        builder.setMessage("앱을 종료 하시겠습니까?")
+                .setNegativeButton("아니요", DialogInterface.OnClickListener { dialog, which -> dialog.dismiss() })
+                .setPositiveButton("예", DialogInterface.OnClickListener { dialog, which -> appFinish() })
+        builder.show()
+    }
+
+    fun appFinish(){
+        super.onBackPressed()
+    }
+
+
     private fun emailLogin(){
         if(editText_login_email.text.toString() == "" || editText_login_password.text.toString() ==  ""){
             Toast.makeText(this, "아이디와 비밀번호를 입력하세요.", Toast.LENGTH_LONG).show()
@@ -55,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
     private fun moveMainActivity(){
         if(user != null){ //유저 정보가 있으면 메인 액티비티로 이동
             val intent = Intent(this, MainActivity::class.java)
-            //intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
     }
