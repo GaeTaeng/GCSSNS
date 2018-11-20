@@ -75,6 +75,7 @@ class MembersFragment : Fragment(){
 class UserItem(val user: User) : Item<ViewHolder>(){
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.textView_useritem_username.text = user.userName
+        viewHolder.itemView.textView_useritem_student_id.text = user.userStudentId
         Picasso.get().load(user.profileImageUrl).into(viewHolder.itemView.imageView_useritem_picture)
     }
     override fun getLayout(): Int {

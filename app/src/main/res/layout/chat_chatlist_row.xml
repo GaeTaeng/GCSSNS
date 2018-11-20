@@ -3,39 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp">
+    android:layout_height="90dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        app:civ_border_width="2dp"
         android:id="@+id/imageView_chat_chatlist_profile"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
     <TextView
-        android:textSize="16dp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
         android:id="@+id/textView_chat_chatlist_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        tools:text = "username"
+        android:textColor="@android:color/black"
+        android:textSize="16dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView_chat_chatlist_message"
         app:layout_constraintStart_toEndOf="@+id/imageView_chat_chatlist_profile"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="username" />
 
     <TextView
-        android:textSize="18dp"
         android:id="@+id/textView_chat_chatlist_message"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -45,6 +44,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="Lastest Message"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

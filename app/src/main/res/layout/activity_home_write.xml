@@ -50,7 +50,7 @@
         android:gravity="top|left"
         android:hint="content"
         android:inputType="textMultiLine"
-        android:maxLength="1024"
+        android:maxLength="4096"
         android:paddingLeft="16dp"
         android:paddingTop="16dp"
         android:scrollHorizontally="false"

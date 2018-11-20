@@ -28,7 +28,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".GalleryReadActivity" />
         <activity android:name=".HomeWriteActivity" />
-        <activity android:name=".HomeReadActivity"></activity>
+        <activity android:name=".HomeReadActivity" />
+        <activity android:name=".HomePictureReadActivity"></activity>
     </application>
 
 </manifest>

@@ -4,12 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.google.firebase.database.*
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
 import com.project.gcssns.gcssns.model.GalleryPicture
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
@@ -52,31 +54,6 @@ class GalleryFragment : Fragment(){
     fun sortDataBaseGalleryItem(){
         Toast.makeText(context, "정렬", Toast.LENGTH_LONG).show()
         val ref = FirebaseDatabase.getInstance().getReference("/gallery").orderByChild("text")
-    }
-
-    private fun fetchGallery(){ //데이터 베이스에서 사진들을 가져와 recycler로 보여준다
-        val ref = FirebaseDatabase.getInstance().getReference("/gallery")
-        ref.addListenerForSingleValueEvent(object: ValueEventListener {
-            val adapter = GroupAdapter<ViewHolder>()
-            override fun onDataChange(p0: DataSnapshot?) {
-                p0!!.children.forEach{
-                    Log.d("NewPicture", it.toString())
-                    val galleryItem = it.getValue(GalleryPicture::class.java)
-                    if(galleryItem != null){
-                        adapter.add(GalleryListItem(galleryItem, width!!))
-                    }
-                }
-                adapter.setOnItemClickListener { item, view ->
-                    val galleryItem = item as GalleryPicture
-                    val intent = Intent(context, GalleryReadActivity::class.java)
-                    item.getPosition(item)
-                    intent.putExtra(GALLERY_ITEM_POSITION, item.getPosition(item))
-                    startActivity(intent)
-                }
-                recyclerview_gallery_list.adapter = adapter
-            }
-            override fun onCancelled(p0: DatabaseError?) {}
-        })
     }
 
     private fun listenForGallerys(){

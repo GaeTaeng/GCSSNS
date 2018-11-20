@@ -5,10 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/white"
     android:layout_width="match_parent"
-    android:maxHeight="200dp"
+    android:minHeight="160dp"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
+        app:civ_border_width="1dp"
         android:id="@+id/imageView_home_feed_user_image"
         android:layout_width="45dp"
         android:layout_height="45dp"
@@ -41,7 +42,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
@@ -51,12 +52,11 @@
         android:gravity="top|left"
         android:hint="content"
         android:inputType="textMultiLine"
-        android:maxLength="1024"
-        android:paddingLeft="16dp"
-        android:paddingTop="16dp"
+        android:maxLength="4096"
         android:scrollHorizontally="false"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textColorHint="@android:color/white"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
