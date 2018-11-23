@@ -29,6 +29,7 @@ class HomeFragment : Fragment(){
 
     companion object {
         val HOME_ITEM = "homeItem"
+        val HOMEFRAGMENT_REQUEST_CODE_HOMEFEED_UP_POSITION = 1
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -40,7 +41,8 @@ class HomeFragment : Fragment(){
 
         floatingActionButton_home_write.setOnClickListener {
             val intent = Intent(context, HomeWriteActivity::class.java)
-            startActivity(intent)
+            intent.putExtra("adapterSize", adapter.itemCount)
+            activity!!.startActivityForResult(intent, HOMEFRAGMENT_REQUEST_CODE_HOMEFEED_UP_POSITION)
         }
         recyclerview_home_list.adapter = adapter
         recyclerview_home_list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))

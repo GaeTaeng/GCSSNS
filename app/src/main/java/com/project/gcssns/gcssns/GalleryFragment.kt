@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -42,8 +43,9 @@ class GalleryFragment : Fragment(){
         recyclerview_gallery_list.adapter = adapter
         //adapter.add(GalleryListItem(width))
         recyclerview_gallery_list.layoutManager = GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, false)
+        //recyclerview_gallery_list.layoutManager = gridLayout
         width = resources.displayMetrics.widthPixels / 3
-        //GridLayoutManager()
+        val re = LinearLayout(context)
         listenForGallerys()
         floatingActionButton_gallery_write.setOnClickListener {
             var intent = Intent(context, GalleryWriteActivity::class.java)
@@ -74,14 +76,19 @@ class GalleryFragment : Fragment(){
                     startActivity(intent)
                 }
             }
+
             override fun onCancelled(p0: DatabaseError?) {
+
             }
 
             override fun onChildMoved(p0: DataSnapshot?, p1: String?) {
+
             }
 
             override fun onChildChanged(p0: DataSnapshot?, p1: String?) {
+
             }
+
             override fun onChildRemoved(p0: DataSnapshot?) {
             }
         })
@@ -96,9 +103,8 @@ class GalleryListItem(var galleryPicture: GalleryPicture, var width : Int) : Ite
 
     override fun bind(viewHolder: ViewHolder, position: Int) {
         val galleryPictureUrl = galleryPicture.picutreImageUrl
-        viewHolder.itemView.linearLayout_gallery_main.layoutParams.width = width
-        viewHolder.itemView.linearLayout_gallery_main.layoutParams.height = width
-        //viewHolder.itemView.recyclerview_gallery_list.
+        viewHolder.itemView.linearLayout_gallery_picture_row.layoutParams.width = width
+        viewHolder.itemView.linearLayout_gallery_picture_row.layoutParams.height = width
         val targetImageView = viewHolder.itemView.imageView_gallery_picture
         Picasso.get().load(galleryPictureUrl).into(targetImageView)
     }

@@ -132,16 +132,20 @@ class ChatLogActivity : AppCompatActivity(), View.OnKeyListener {
                     editText_chat_log_message.text.clear()
                     recyclerview_chat_log.scrollToPosition(adapter.itemCount - 1)
                 }
-        toRef.setValue(chatMessage)
-                .addOnSuccessListener {
-                    Log.d(TAG, "saved our message : ${toRef.key}")
-                }
+        if(toId != fromId){
+            toRef.setValue(chatMessage)
+                    .addOnSuccessListener {
+                        Log.d(TAG, "saved our message : ${toRef.key}")
+                    }
+        }
 
         val lastestMessageRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$fromId/$toId") //최신 메세지를 데이터 베이스에 갱신, 추가가 아니므로 push X
         lastestMessageRef.setValue(chatMessage)
 
-        val lastestMessageToRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$toId/$fromId")
-        lastestMessageToRef.setValue(chatMessage)
+        if(toId != fromId) {
+            val lastestMessageToRef = FirebaseDatabase.getInstance().getReference("/latest-messages/$toId/$fromId")
+            lastestMessageToRef.setValue(chatMessage)
+        }
     }
 
 }

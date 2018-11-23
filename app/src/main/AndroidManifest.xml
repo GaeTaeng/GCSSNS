@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:largeHeap="true"
+        android:hardwareAccelerated="false"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,7 +23,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".ChatFragment" />
-        <activity android:name=".ChatLogActivity" />
+        <activity android:name=".ChatLogActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"/>
         <activity
             android:name=".GalleryWriteActivity"
             android:label="@string/title_activity_gallery_picture_write"

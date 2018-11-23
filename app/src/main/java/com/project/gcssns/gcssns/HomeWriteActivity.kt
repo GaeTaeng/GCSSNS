@@ -85,6 +85,10 @@ class HomeWriteActivity : AppCompatActivity() {
                     .addOnSuccessListener {
                         Toast.makeText(this, "메인 게시물 등록이 완료되었습니다.", Toast.LENGTH_LONG).show()
                         Log.d("HomeWrite", "the home picture Information saved")
+                        val intent2 = Intent()
+                        val size = intent.getIntExtra("adapterSize" , 0)
+                        intent2.putExtra("adapterSize", size)
+                        setResult(RESULT_OK, intent2)
                         finish()
                     }
                     .addOnFailureListener {

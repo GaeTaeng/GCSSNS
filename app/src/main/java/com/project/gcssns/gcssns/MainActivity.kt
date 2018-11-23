@@ -1,5 +1,6 @@
 package com.project.gcssns.gcssns
 
+import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
@@ -17,6 +18,7 @@ import com.google.firebase.database.ValueEventListener
 import com.project.gcssns.gcssns.model.User
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.nav_header.view.*
 import kotlinx.android.synthetic.main.toolbar_main.*
 
@@ -124,6 +126,16 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(intent)
         Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_LONG).show()
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == HomeFragment.HOMEFRAGMENT_REQUEST_CODE_HOMEFEED_UP_POSITION && resultCode == Activity.RESULT_OK){
+            val position = data!!.getIntExtra("adapterSize", 0)
+            Toast.makeText(this, position.toString(), Toast.LENGTH_LONG).show()
+            recyclerview_home_list.scrollToPosition(position)
+        }
     }
 
 }
