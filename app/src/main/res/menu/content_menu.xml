@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+    android:title="수정하기"
+    android:id="@+id/content_modify_menu_item"
+    android:enabled="true" />
+    <item
+        android:title="삭제하기"
+        android:id="@+id/content_delete_menu_item"
+        android:enabled="true" />
+</menu>

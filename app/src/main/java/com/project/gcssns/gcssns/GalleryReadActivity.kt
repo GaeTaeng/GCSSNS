@@ -25,6 +25,10 @@ class GalleryReadActivity : AppCompatActivity() {
         positionItem = intent.getIntExtra(GalleryFragment.GALLERY_ITEM_POSITION,0)
         adapter = GalleryPagerAdapter(this)
         viewPager_gallery_read.adapter = adapter
+        getCurrentItem()
+    }
+
+    private fun getCurrentItem(){
         Handler().post {
             kotlin.run {
                 viewPager_gallery_read.currentItem = positionItem!!
@@ -33,11 +37,7 @@ class GalleryReadActivity : AppCompatActivity() {
     }
 
     override fun onResume() {
-        Handler().post {
-            kotlin.run {
-                viewPager_gallery_read.currentItem = positionItem!!
-            }
-        }
+        getCurrentItem()
         super.onResume()
     }
 

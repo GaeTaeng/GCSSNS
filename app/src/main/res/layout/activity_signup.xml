@@ -77,8 +77,8 @@
         app:layout_constraintStart_toStartOf="@+id/editText_signup_name"
         app:layout_constraintTop_toBottomOf="@+id/editText_signup_name" />
 
-    <EditText
-        android:id="@+id/editText_signup_major"
+    <Spinner
+        android:id="@+id/spinner_signup_major"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
@@ -101,9 +101,9 @@
         android:background="@drawable/button_rounded_shape"
         android:text="submit"
         android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="@+id/editText_signup_major"
-        app:layout_constraintStart_toStartOf="@+id/editText_signup_major"
-        app:layout_constraintTop_toBottomOf="@+id/editText_signup_major" />
+        app:layout_constraintEnd_toEndOf="@+id/spinner_signup_major"
+        app:layout_constraintStart_toStartOf="@+id/spinner_signup_major"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_signup_major" />
 
     <Button
         android:id="@+id/button_signup_photo"

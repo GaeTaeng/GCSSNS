@@ -106,4 +106,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView_gallery_item_viewpager_user_image" />
+
+    <ImageButton
+        android:id="@+id/imageButton_gallery_item_viewpager_menu"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/white"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_gallery_item_viewpager_username"
+        app:srcCompat="@drawable/icon_menu2" />
+
 </android.support.constraint.ConstraintLayout>

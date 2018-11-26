@@ -49,14 +49,13 @@ class HomeFragment : Fragment(){
         listenForHomeFeeds()
     }
 
-
     private fun listenForHomeFeeds(){
         val ref = FirebaseDatabase.getInstance().getReference("/home")
 
         ref.addChildEventListener(object: ChildEventListener { //데이터 베이스에서 메세지 정보를 찾아서 뷰에 표시해 준다
             override fun onChildAdded(p0: DataSnapshot?, p1: String?) {
                 val homeItem = p0!!.getValue(HomeFeed::class.java)
-                if(homeItem != null){
+                if(homeItem != null && MainActivity.currentUser!!.userMajor == homeItem.user!!.userMajor){
                     adapter.add(HomeFeedItem(homeItem))
                 }
                 adapter.setOnItemClickListener { item, view ->

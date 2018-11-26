@@ -90,6 +90,7 @@ class GalleryFragment : Fragment(){
             }
 
             override fun onChildRemoved(p0: DataSnapshot?) {
+
             }
         })
     }
@@ -107,5 +108,9 @@ class GalleryListItem(var galleryPicture: GalleryPicture, var width : Int) : Ite
         viewHolder.itemView.linearLayout_gallery_picture_row.layoutParams.height = width
         val targetImageView = viewHolder.itemView.imageView_gallery_picture
         Picasso.get().load(galleryPictureUrl).into(targetImageView)
+    }
+
+    override fun equals(other: Any?): Boolean {
+        return super.equals(other)
     }
 }

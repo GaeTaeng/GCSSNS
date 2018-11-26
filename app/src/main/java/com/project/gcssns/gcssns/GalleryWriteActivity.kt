@@ -61,7 +61,7 @@ class GalleryWriteActivity : AppCompatActivity() {
 
     fun saveDataBaseImage(selectedPhotoUri: String, filename : String){
         val uid = FirebaseAuth.getInstance().uid //유저 고유 아이디
-        val ref = FirebaseDatabase.getInstance().getReference("/gallery").push() //Firebase database 래퍼런스 정보
+        val ref = FirebaseDatabase.getInstance().getReference("/gallery/$filename") //Firebase database 래퍼런스 정보
         val galleryPicture = GalleryPicture(filename, MainActivity.currentUser!!, editText_gallery_write_content.text.toString(), selectedPhotoUri,System.currentTimeMillis() / 1000)
         println("유저 정보 : " + galleryPicture)
         ref.setValue(galleryPicture) // Firebase에서 가져온 래퍼런스 정보에다가 유저 정보를 넣음
