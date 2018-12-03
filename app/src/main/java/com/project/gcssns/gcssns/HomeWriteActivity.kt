@@ -79,8 +79,9 @@ class HomeWriteActivity : AppCompatActivity() {
 
     fun saveDataBaseImage(){
         if(pictureDownloadPathList.size == picturePathList.size){
-            val ref = FirebaseDatabase.getInstance().getReference("/home").push() //Firebase database 래퍼런스 정보
-            val homeFeed = HomeFeed(MainActivity.currentUser!!, editText_home_write_content.text.toString(), pictureDownloadPathList, System.currentTimeMillis() / 1000)
+            val homeFeedID = UUID.randomUUID().toString()
+            val ref = FirebaseDatabase.getInstance().getReference("/home/$homeFeedID") //Firebase database 래퍼런스 정보
+            val homeFeed = HomeFeed(homeFeedID, MainActivity.currentUser!!, editText_home_write_content.text.toString(), pictureDownloadPathList, System.currentTimeMillis() / 1000)
             ref.setValue(homeFeed) // Firebase에서 가져온 래퍼런스 정보에다가 유저 정보를 넣음
                     .addOnSuccessListener {
                         Toast.makeText(this, "메인 게시물 등록이 완료되었습니다.", Toast.LENGTH_LONG).show()

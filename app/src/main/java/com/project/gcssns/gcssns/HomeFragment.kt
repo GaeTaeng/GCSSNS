@@ -1,9 +1,10 @@
 package com.project.gcssns.gcssns
 
 import android.content.Intent
+import android.graphics.Rect
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,7 +46,24 @@ class HomeFragment : Fragment(){
             activity!!.startActivityForResult(intent, HOMEFRAGMENT_REQUEST_CODE_HOMEFEED_UP_POSITION)
         }
         recyclerview_home_list.adapter = adapter
-        recyclerview_home_list.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+        recyclerview_home_list.addItemDecoration(object : RecyclerView.ItemDecoration(){
+            var space = 24
+            override fun getItemOffsets(outRect: Rect?, view: View?, parent: RecyclerView?, state: RecyclerView.State?) {
+                val position = parent!!.getChildAdapterPosition(view!!)
+                val isFirst = position == state!!.getItemCount() - 1
+                if (!isFirst) {
+                    outRect!!.top = space
+                    outRect!!.bottom = 0 //don't forget about recycling...
+                }
+                if (position == 0) {
+                    outRect!!.top = space
+                    // don't recycle bottom if first item is also last
+                    // should keep bottom padding set above
+                    if (isFirst)
+                        outRect.bottom = 0
+                }
+            }
+        })
         listenForHomeFeeds()
     }
 
@@ -57,6 +75,7 @@ class HomeFragment : Fragment(){
                 val homeItem = p0!!.getValue(HomeFeed::class.java)
                 if(homeItem != null && MainActivity.currentUser!!.userMajor == homeItem.user!!.userMajor){
                     adapter.add(HomeFeedItem(homeItem))
+                    adapter.notifyDataSetChanged()
                 }
                 adapter.setOnItemClickListener { item, view ->
                     var homeFeedItem = item as HomeFeedItem
@@ -74,6 +93,7 @@ class HomeFragment : Fragment(){
             override fun onChildChanged(p0: DataSnapshot?, p1: String?) {
             }
             override fun onChildRemoved(p0: DataSnapshot?) {
+                adapter.notifyDataSetChanged()
             }
         })
     }

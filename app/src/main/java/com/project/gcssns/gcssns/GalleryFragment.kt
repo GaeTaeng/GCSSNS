@@ -65,7 +65,7 @@ class GalleryFragment : Fragment(){
             override fun onChildAdded(p0: DataSnapshot?, p1: String?) {
                 val galleryItem = p0!!.getValue(GalleryPicture::class.java)
                 if(galleryItem != null){
-                    adapter.add(GalleryListItem(galleryItem, width!!))
+                    adapter.add(0, GalleryListItem(galleryItem, width!!))
                 }
                 adapter.setOnItemClickListener { item, view ->
                     val galleryItem = item as GalleryPicture
@@ -90,7 +90,7 @@ class GalleryFragment : Fragment(){
             }
 
             override fun onChildRemoved(p0: DataSnapshot?) {
-
+                adapter.notifyDataSetChanged()
             }
         })
     }

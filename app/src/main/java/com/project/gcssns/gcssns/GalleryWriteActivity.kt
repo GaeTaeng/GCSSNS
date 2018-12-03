@@ -50,7 +50,6 @@ class GalleryWriteActivity : AppCompatActivity() {
                     ref.downloadUrl.addOnSuccessListener {
                         Log.d("GalleryPictureWrite", "File Location : $it")
                         saveDataBaseImage(it.toString(), filename)
-                        sortDataBaseGalleryItem()
                     }
                 }
     }

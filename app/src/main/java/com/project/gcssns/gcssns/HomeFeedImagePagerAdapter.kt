@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.home_picture_item_viewpager.view.*
 
-class HomeFeedPagerAdapter : PagerAdapter {
+class HomeFeedImagePagerAdapter : PagerAdapter {
 
     var m_context : Context? = null
-    var m_homeFeedArray = ArrayList<String?>()
+    var m_homeFeedImageArray = ArrayList<String?>()
     var m_inflater : LayoutInflater? = null
 
     constructor(context : Context) : super(){
@@ -24,14 +24,14 @@ class HomeFeedPagerAdapter : PagerAdapter {
     }
 
     override fun getCount(): Int {
-        return m_homeFeedArray.size
+        return m_homeFeedImageArray.size
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         m_inflater = m_context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         var view = m_inflater!!.inflate(R.layout.home_picture_item_viewpager, container, false)
         val imageTarget = view.imageView_home_picture_item_image
-        Picasso.get().load(m_homeFeedArray[position]!!).into(imageTarget)
+        Picasso.get().load(m_homeFeedImageArray[position]!!).into(imageTarget)
         container.addView(view)
         return view
     }
@@ -41,7 +41,7 @@ class HomeFeedPagerAdapter : PagerAdapter {
     }
 
     fun addItem(homeFeed : String?){
-        m_homeFeedArray.add(homeFeed)
+        m_homeFeedImageArray.add(homeFeed)
         notifyDataSetChanged()
     }
 
