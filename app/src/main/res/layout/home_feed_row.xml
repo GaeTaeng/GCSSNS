@@ -81,6 +81,7 @@
             android:layout_weight="1">
 
             <ImageView
+                android:id="@+id/imageView_home_feed_row_like_icon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginLeft="15dp"
@@ -89,6 +90,7 @@
                 android:src="@drawable/icon_like" />
 
             <TextView
+                android:id="@+id/textView_home_feed_row_like"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_marginLeft="15dp"
@@ -105,6 +107,7 @@
             android:layout_weight="1">
 
             <ImageView
+                android:id="@+id/imageView_home_feed_row_comment_icon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginLeft="15dp"
@@ -113,6 +116,7 @@
                 android:src="@drawable/icon_comment" />
 
             <TextView
+                android:id="@+id/textView_home_feed_row_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_marginLeft="15dp"
@@ -129,6 +133,7 @@
             android:layout_weight="1">
 
             <ImageView
+                android:id="@+id/imageView_home_feed_row_send_icon"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginLeft="15dp"
@@ -137,6 +142,7 @@
                 android:src="@drawable/icon_send" />
 
             <TextView
+                android:id="@+id/textView_home_feed_row_send"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_marginLeft="15dp"

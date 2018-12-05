@@ -14,7 +14,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.project.gcssns.gcssns.model.HomeFeed
 import com.squareup.picasso.Picasso
-import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -26,7 +25,7 @@ import kotlinx.android.synthetic.main.home_feed_row.view.*
 
 class HomeFragment : Fragment(){
 
-    val adapter = GroupAdapter<ViewHolder>()
+    var adapter : HomeFeedAdapter? = null
 
     companion object {
         val HOME_ITEM = "homeItem"
@@ -40,9 +39,10 @@ class HomeFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        adapter = HomeFeedAdapter(context)
         floatingActionButton_home_write.setOnClickListener {
             val intent = Intent(context, HomeWriteActivity::class.java)
-            intent.putExtra("adapterSize", adapter.itemCount)
+            intent.putExtra("adapterSize", adapter!!.itemCount)
             activity!!.startActivityForResult(intent, HOMEFRAGMENT_REQUEST_CODE_HOMEFEED_UP_POSITION)
         }
         recyclerview_home_list.adapter = adapter
@@ -74,15 +74,15 @@ class HomeFragment : Fragment(){
             override fun onChildAdded(p0: DataSnapshot?, p1: String?) {
                 val homeItem = p0!!.getValue(HomeFeed::class.java)
                 if(homeItem != null && MainActivity.currentUser!!.userMajor == homeItem.user!!.userMajor){
-                    adapter.add(HomeFeedItem(homeItem))
-                    adapter.notifyDataSetChanged()
+                    adapter!!.addItem(homeItem)
+                    adapter!!.notifyDataSetChanged()
                 }
-                adapter.setOnItemClickListener { item, view ->
+               /*adapter.setOnItemClickListener { item, view ->
                     var homeFeedItem = item as HomeFeedItem
                     val intent = Intent(context, HomeReadActivity::class.java)
                     intent.putExtra(HomeFragment.HOME_ITEM, homeFeedItem._homeFeed)
                     startActivity(intent)
-                }
+                }*/
             }
             override fun onCancelled(p0: DatabaseError?) {
             }
@@ -93,7 +93,7 @@ class HomeFragment : Fragment(){
             override fun onChildChanged(p0: DataSnapshot?, p1: String?) {
             }
             override fun onChildRemoved(p0: DataSnapshot?) {
-                adapter.notifyDataSetChanged()
+                adapter!!.notifyDataSetChanged()
             }
         })
     }

@@ -12,17 +12,20 @@ import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import com.project.gcssns.gcssns.model.HomeFeed
+import com.project.gcssns.gcssns.model.HomeFeedComment
 import com.squareup.picasso.Picasso
 import droidninja.filepicker.FilePickerBuilder
 import droidninja.filepicker.FilePickerConst
 import kotlinx.android.synthetic.main.activity_home_write.*
 import java.io.File
 import java.util.*
+import kotlin.collections.HashMap
 
 class HomeWriteActivity : AppCompatActivity() {
 
     var picturePathList = ArrayList<String>()
     var pictureDownloadPathList = ArrayList<String>()
+    var commentList = HashMap<String, HomeFeedComment>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,7 +84,7 @@ class HomeWriteActivity : AppCompatActivity() {
         if(pictureDownloadPathList.size == picturePathList.size){
             val homeFeedID = UUID.randomUUID().toString()
             val ref = FirebaseDatabase.getInstance().getReference("/home/$homeFeedID") //Firebase database 래퍼런스 정보
-            val homeFeed = HomeFeed(homeFeedID, MainActivity.currentUser!!, editText_home_write_content.text.toString(), pictureDownloadPathList, System.currentTimeMillis() / 1000)
+            val homeFeed = HomeFeed(homeFeedID, MainActivity.currentUser!!, editText_home_write_content.text.toString(), pictureDownloadPathList, commentList, System.currentTimeMillis() / 1000)
             ref.setValue(homeFeed) // Firebase에서 가져온 래퍼런스 정보에다가 유저 정보를 넣음
                     .addOnSuccessListener {
                         Toast.makeText(this, "메인 게시물 등록이 완료되었습니다.", Toast.LENGTH_LONG).show()
