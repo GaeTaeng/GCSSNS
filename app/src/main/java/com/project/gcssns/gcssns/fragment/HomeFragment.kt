@@ -1,4 +1,4 @@
-package com.project.gcssns.gcssns
+package com.project.gcssns.gcssns.fragment
 
 import android.content.Intent
 import android.graphics.Rect
@@ -12,6 +12,10 @@ import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.project.gcssns.gcssns.adapter.HomeFeedAdapter
+import com.project.gcssns.gcssns.HomeWriteActivity
+import com.project.gcssns.gcssns.MainActivity
+import com.project.gcssns.gcssns.R
 import com.project.gcssns.gcssns.model.HomeFeed
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.Item

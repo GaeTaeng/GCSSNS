@@ -1,4 +1,4 @@
-package com.project.gcssns.gcssns
+package com.project.gcssns.gcssns.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +13,9 @@ import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.project.gcssns.gcssns.GalleryReadActivity
+import com.project.gcssns.gcssns.GalleryWriteActivity
+import com.project.gcssns.gcssns.R
 import com.project.gcssns.gcssns.model.GalleryPicture
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter

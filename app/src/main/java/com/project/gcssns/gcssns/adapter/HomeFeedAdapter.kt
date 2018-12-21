@@ -1,4 +1,4 @@
-package com.project.gcssns.gcssns
+package com.project.gcssns.gcssns.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -8,6 +8,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.project.gcssns.gcssns.HomeCommentActivity
+import com.project.gcssns.gcssns.HomeReadActivity
+import com.project.gcssns.gcssns.R
+import com.project.gcssns.gcssns.fragment.HomeFragment
 import com.project.gcssns.gcssns.model.HomeFeed
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.home_feed_row.view.*

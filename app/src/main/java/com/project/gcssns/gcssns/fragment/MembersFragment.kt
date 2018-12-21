@@ -1,4 +1,4 @@
-package com.project.gcssns.gcssns
+package com.project.gcssns.gcssns.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,9 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.project.gcssns.gcssns.ChatLogActivity
+import com.project.gcssns.gcssns.MainActivity
+import com.project.gcssns.gcssns.R
 import com.project.gcssns.gcssns.model.User
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter

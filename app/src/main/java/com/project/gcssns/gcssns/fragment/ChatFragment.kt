@@ -1,4 +1,4 @@
-package com.project.gcssns.gcssns
+package com.project.gcssns.gcssns.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.project.gcssns.gcssns.ChatLogActivity
+import com.project.gcssns.gcssns.R
 import com.project.gcssns.gcssns.model.ChatMessage
 import com.project.gcssns.gcssns.model.User
 import com.squareup.picasso.Picasso

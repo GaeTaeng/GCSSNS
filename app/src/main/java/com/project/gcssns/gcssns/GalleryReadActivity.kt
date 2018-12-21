@@ -7,6 +7,8 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.project.gcssns.gcssns.adapter.GalleryPagerAdapter
+import com.project.gcssns.gcssns.fragment.GalleryFragment
 import com.project.gcssns.gcssns.model.GalleryPicture
 import kotlinx.android.synthetic.main.activity_gallery_read.*
 

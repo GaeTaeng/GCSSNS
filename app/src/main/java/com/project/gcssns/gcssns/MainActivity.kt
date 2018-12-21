@@ -15,6 +15,10 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.project.gcssns.gcssns.fragment.ChatFragment
+import com.project.gcssns.gcssns.fragment.GalleryFragment
+import com.project.gcssns.gcssns.fragment.HomeFragment
+import com.project.gcssns.gcssns.fragment.MembersFragment
 import com.project.gcssns.gcssns.model.User
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
@@ -103,6 +107,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             R.id.nav_profile->{
                 val intent = Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
+            }
+            R.id.nav_email->{
+                startActivity(Intent(this, EmailSendActivity::class.java))
             }
         }
         return false

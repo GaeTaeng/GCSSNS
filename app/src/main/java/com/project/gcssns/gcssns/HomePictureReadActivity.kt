@@ -2,6 +2,7 @@ package com.project.gcssns.gcssns
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.project.gcssns.gcssns.adapter.HomeFeedImagePagerAdapter
 import kotlinx.android.synthetic.main.activity_home_picture_read.*
 
 class HomePictureReadActivity : AppCompatActivity() {

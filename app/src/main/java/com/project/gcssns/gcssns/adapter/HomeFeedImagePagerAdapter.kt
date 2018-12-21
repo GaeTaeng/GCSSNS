@@ -1,4 +1,4 @@
-package com.project.gcssns.gcssns
+package com.project.gcssns.gcssns.adapter
 
 import android.content.Context
 import android.support.constraint.ConstraintLayout
@@ -6,6 +6,7 @@ import android.support.v4.view.PagerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.project.gcssns.gcssns.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.home_picture_item_viewpager.view.*
 

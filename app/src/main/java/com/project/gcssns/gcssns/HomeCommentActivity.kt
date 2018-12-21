@@ -8,6 +8,7 @@ import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.project.gcssns.gcssns.fragment.HomeFragment
 import com.project.gcssns.gcssns.model.HomeFeed
 import com.project.gcssns.gcssns.model.HomeFeedComment
 import com.squareup.picasso.Picasso
@@ -17,6 +18,7 @@ import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_home_comment.*
 import kotlinx.android.synthetic.main.home_comment_row.view.*
 import java.util.*
+
 
 class HomeCommentActivity : AppCompatActivity() {
 

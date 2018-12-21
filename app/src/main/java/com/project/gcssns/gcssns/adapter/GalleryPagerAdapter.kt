@@ -1,4 +1,4 @@
-package com.project.gcssns.gcssns
+package com.project.gcssns.gcssns.adapter
 
 import android.app.Activity
 import android.app.AlertDialog
@@ -13,6 +13,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
+import com.project.gcssns.gcssns.MainActivity
+import com.project.gcssns.gcssns.R
 import com.project.gcssns.gcssns.model.GalleryPicture
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.gallery_item_viewpager.view.*

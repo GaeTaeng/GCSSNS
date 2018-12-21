@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.project.gcssns.gcssns.fragment.HomeFragment
 import com.project.gcssns.gcssns.model.HomeFeed
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_home_read.*

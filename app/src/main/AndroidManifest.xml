@@ -3,6 +3,7 @@
     package="com.project.gcssns.gcssns">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +23,7 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".ChatFragment" />
+        <activity android:name=".fragment.ChatFragment" />
         <activity
             android:name=".ChatLogActivity"
             android:windowSoftInputMode="stateVisible|adjustResize" />
@@ -35,7 +36,8 @@
         <activity android:name=".HomeReadActivity" />
         <activity android:name=".HomePictureReadActivity" />
         <activity android:name=".ProfileActivity" />
-        <activity android:name=".HomeCommentActivity"></activity>
+        <activity android:name=".HomeCommentActivity" />
+        <activity android:name=".EmailSendActivity"></activity>
     </application>
 
 </manifest>
